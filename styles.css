@@ -1,0 +1,184 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 전체 헤더 스타일 */
+header {
+    background-color: #fff;
+    padding: 20px 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* 상단 로고와 버튼을 가로로 배치 */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* 전체 화면의 80%를 차지하도록 */
+    
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box; /* 여백 포함 */
+}
+
+
+/* 로고 스타일 */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    
+    white-space: nowrap; /* 로고가 줄바꿈되지 않도록 */
+}
+
+/* 검색 및 버튼 섹션 스타일 */
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap; /* 버튼들이 줄바꿈되지 않도록 */
+}
+
+
+
+
+.search-input {
+    padding: 8px;
+}
+
+.search-button, .login, .signup {
+    padding: 8px 12px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* nav 스타일 */
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 50px; /* 링크 간 간격 */
+    margin-top: 20px; /* 헤더와의 간격 */
+}
+
+/* nav 링크 스타일 */
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* 섹션 스타일 */
+/* 부모 컨테이너에 display: flex 적용 */
+.sections-container {
+    display: flex;
+    width: 100%; 
+    gap: 20px; /* 두 섹션 간 간격 */
+}
+
+/* 섹션 스타일 */
+.popular-contests, .closing-soon {
+    flex-basis: 48%; /* 각 섹션에 약 절반 너비 할당 */
+}
+
+
+.popular-contests, .closing-soon {
+    display: inline-block;
+    width: 49%; /* 화면 너비의 절반 정도 할당 */
+    vertical-align: top; /* 두 섹션의 상단을 맞춤 */
+    
+}
+
+.closing-soon {
+    margin-right: 0; /* 마지막 요소의 여백 제거 */
+}
+
+
+.closing-soon ul {
+    list-style: none;
+    padding: 0;
+}
+
+.closing-soon li {
+    font-size: 18px;
+    margin: 10px 0;
+    display: inline-block;
+    margin-right: 10px; /* 요소 간 간격 조절 */
+}
+
+
+
+
+
+.popular-contests h2, .popular-activities h2, .team-building h2, .closing-soon h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contest-cards, .activity-cards, .team-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.contest-card, .activity-card, .team-card {
+    width: 170px;
+    height: 220px;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* 부모 컨테이너에 display: flex 적용 */
+.sections-container {
+    display: flex;
+    width: 100%; 
+    gap: 20px; /* 두 섹션 간 간격 */
+}
+
+/* 섹션 스타일 */
+.popular-activities, .team-building {
+    flex-basis: 48%; /* 각 섹션에 약 절반 너비 할당 */
+}
+
+
+.popular-activities, .team-building {
+    display: inline-block;
+    width: 49%; /* 화면 너비의 절반 정도 할당 */
+    vertical-align: top; /* 두 섹션의 상단을 맞춤 */
+    
+}
+
+.team-building {
+    margin-right: 0; /* 마지막 요소의 여백 제거 */
+}
+
+
+.team-building ul {
+    list-style: none;
+    padding: 0;
+}
+
+.team-building li {
+    font-size: 18px;
+    margin: 10px 0;
+    display: inline-block;
+    margin-right: 10px; /* 요소 간 간격 조절 */
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+
