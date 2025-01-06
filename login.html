@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #EAF8ED; /* 배경색 */
+        }
+
+        .login-container {
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 360px;
+            text-align: center;
+        }
+
+        .login-container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .logo span {
+            color: #FFC107; /* 별 아이콘 색상 */
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #45a049;
+        }
+
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .login-options a {
+            color: #FFC107;
+            text-decoration: none;
+        }
+
+        .login-options a:hover {
+            text-decoration: underline;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .checkbox-container input {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">Infostar <span>⭐</span></div>
+        <h1>LOGIN</h1>
+        <input type="text" placeholder="ID" id="id">
+        <input type="password" placeholder="PASSWORD" id="password">
+        <div class="checkbox-container">
+            <input type="checkbox" id="rememberMe">
+            <label for="rememberMe">아이디 저장</label>
+        </div>
+        <button id="loginSubmit">로그인</button>
+        <div class="login-options">
+            <a href="#">ID / 비밀번호 찾기</a>
+            <a href="#">회원가입</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginSubmit').addEventListener('click', function() {
+            const id = document.getElementById('id').value;
+            const password = document.getElementById('password').value;
+
+            // 로그인 요청 처리 코드
+            alert(`Logging in with ID: ${id}`); // 실제 로그인 요청을 대체하는 예시
+        });
+    </script>
+</body>
+</html>
