@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #EAF8ED; /* 부드러운 배경색 */
+        }
+
+        .signup-container {
+            background-color: #FFFFFF;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
+            width: 400px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .logo span {
+            color: #FFC107; /* 별 아이콘 색상 */
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus {
+            border-color: #4CAF50; /* 포커스 시 초록색 */
+            outline: none;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049; /* 버튼 호버 색상 */
+        }
+
+        .footer-text {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .footer-text a {
+            color: #FFC107;
+            text-decoration: none;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <div class="logo">Infostar <span>⭐</span></div>
+        <h1>회원가입</h1>
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="name">이름</label>
+                <input type="text" id="name" placeholder="이름을 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="phone">휴대폰 번호</label>
+                <input type="tel" id="phone" placeholder="휴대폰 번호를 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="signupId">아이디</label>
+                <input type="text" id="signupId" placeholder="아이디를 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">비밀번호</label>
+                <input type="password" id="signupPassword" placeholder="비밀번호를 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="email">이메일</label>
+                <input type="email" id="email" placeholder="이메일을 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="university">대학교</label>
+                <input type="text" id="university" placeholder="대학교명을 입력하세요">
+            </div>
+            <button type="button" id="registerSubmit">등록하기</button>
+        </form>
+        <div class="footer-text">
+            이미 계정이 있으신가요? <a href="#">로그인</a>
+        </div>
+    </div>
+
+    <script>
+        // 회원가입 버튼 클릭 이벤트
+        document.getElementById('registerSubmit').addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const signupId = document.getElementById('signupId').value;
+            const signupPassword = document.getElementById('signupPassword').value;
+            const email = document.getElementById('email').value;
+            const university = document.getElementById('university').value;
+            
+            alert(`회원가입 정보:\n이름: ${name}\n휴대폰 번호: ${phone}\n아이디: ${signupId}\n비밀번호: ${signupPassword}\n이메일: ${email}\n대학교: ${university}`);
+        });
+    </script>
+</body>
+</html>
