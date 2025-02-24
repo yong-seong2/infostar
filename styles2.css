@@ -1,0 +1,135 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    min-width: 1280px; /* 최소 너비 설정 */
+}
+
+/* 중앙 정렬 및 최대 너비 설정 */
+.container {
+    max-width: 1100px; /* 전체 페이지 최대 너비 */
+    margin: 0 auto;  /* 중앙 정렬 */
+    padding: 0 20px; /* 좌우 여백 추가 */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background:#fff;
+    border-bottom: 2px solid #ddd;
+    height: 40px; /* 헤더 높이 조정 */
+     max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+ /* 제목과 로고를 묶는 컨테이너 */
+ .title-container {
+    display: flex;
+    align-items: center;
+}
+
+/* 제목 스타일 */
+.header-title {
+    font-size: 24px; /* 글자 크기 */
+    font-weight: bold;
+    margin-right: 5px; /* 글자와 로고 간격 최소화 */
+    background: none;   /* 배경 제거 */
+    border: none;       /* 테두리 제거 */
+}
+
+/* 로고 스타일 */
+.logo {
+    height: 45px; /* 글자 크기에 맞춰 로고 크기 조정 */
+    vertical-align: middle;
+    position: relative;
+    top: -5px; /* 로고를 위로 이동 */
+}
+
+.search-box {
+    position: relative;
+    
+}
+.search-box input {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.cancel-button {
+    background-color: transparent;
+    border: none;
+    color:  #007acc;
+    cursor: pointer;
+}
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background: #fff;
+    border-bottom: 2px solid #ddd;
+}
+nav a {
+    margin: 0 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #007acc; /* 마우스를 올렸을 때 초록색으로 변경 */
+    
+}   
+
+.header-buttons {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+.sidebar button {
+    border: none; /* 버튼 경계 제거 */
+    background: none; /* 배경 제거 (원하는 경우 추가) */
+    padding: 10px; /* 필요에 따라 패딩 조정 */
+    text-align: left; /* 텍스트 왼쪽 정렬 (원하는 경우 추가) */
+}
+
+.sidebar button:hover {
+    background-color: #f1f1f1; 
+    color: #007acc; 
+}
+.login, .signup {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login:hover {
+    background-color: #f0f0f0; 
+    color: #007acc;
+}
+
+.signup:hover {
+    background-color: #f0f0f0;
+    color: #007acc; 
+
+
+
+
+
+
+
+

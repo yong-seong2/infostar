@@ -1,0 +1,460 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infostar</title>
+    <link rel="stylesheet" href="styles2.css">
+    <style> 
+        /* 배너 전체를 화면 가운데 정렬 */
+        .banner {
+            display: flex;
+            justify-content: center; /* 가로 중앙 정렬 */
+            align-items: center; /* 세로 중앙 정렬 */
+            height: 300px; /* 원하는 높이 지정 */
+            text-align: center; /* 내부 텍스트 중앙 정렬 */
+            margin-top: 80px; /* 헤더를 가리지 않도록 조정 */
+            position: relative;
+            background: white; /* 배경색 추가 (필요 시) */
+        }
+        
+        .banner-slider {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 가로 중앙 정렬 */
+            justify-content: center; /* 세로 중앙 정렬 */
+            width: 80%; /* 배너 크기 조정 */
+            max-width: 800px; /* 최대 크기 지정 */
+            background: white; /* 배너 배경색 */
+            padding: 20px;
+            border-radius: 10px; /* 둥근 모서리 */
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+            
+        
+        }
+        
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .banner-content {
+            text-align: center;
+            color: white;
+        }
+        
+        .banner-content h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        
+        .btn-primary, .btn-secondary {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .btn-secondary {
+            background-color: #6C757D;
+        }
+        
+        .sections-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            flex: 1
+        }
+        
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .competition-list {
+            flex-basis: calc(33.33% - 10px); /* 한 줄에 세 개 배치 */
+            box-sizing: border-box;
+            margin: 5px 0;
+        }
+        .competition-item {
+            border: 1px solid #ccc;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .competition-item img {
+            width: 100%;
+            height: 150px; /* 세로가 긴 직사각형 */
+            object-fit: cover;
+        }
+        .closing-soon, .team-building {
+            flex: 0.5;
+            font-size: 0.75em;
+        }
+        .closing-soon h3, .team-building h3 {
+            flex: 1 1 calc(33.33% - 20px); /* 같은 크기로 배치 */
+            text-align: center;
+            padding: 7px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .filters {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .우주-container {
+            position: relative;
+            text-align: center;
+            width: 100%; /* 전체 너비 맞춤 */
+        }
+
+        .우주 {
+            width: 100%; /* 전체 너비 */
+            height: 180px; /* 원하는 높이로 조절 (가로로 긴 형태) */
+            object-fit: cover; /* 비율 유지하면서 잘라냄 */
+            opacity: 0.9; /* 약간 투명하게 설정 (선택 사항) */
+        }
+
+        .우주-text {
+            position: absolute;
+            top: 50%; /* 사진 위 중앙 정렬 */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white; /* 글자 색상 */
+            font-size: 24px; /* 글자 크기 */
+            font-weight: bold; /* 굵은 글씨 */
+        }
+
+        /* 한 줄에 세 개씩 배치 */
+        .competition-list {
+            width: calc(33.33% - 10px); /* 부모 너비에서 3등분 */
+            box-sizing: border-box; /* 패딩/마진 포함 */
+            display: inline-block;
+            vertical-align: top;
+            margin: 5px;
+        }
+
+        /* 공모전 개별 항목 카드 스타일 */
+        .competition-item {
+            border: 1px solid #ccc;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .competition-item img {
+            width: 100%;
+            height: 300px; /* 세로가 긴 직사각형으로 고정 */
+            object-fit: cover;
+            
+        }
+        
+        .content {
+            background-color: #f0f0f0;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .activity {
+            background-color: #f0f0f0;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .content:hover {
+            background-color: #f0f0f0; 
+            color: #007acc;
+        }
+
+        .activity:hover {
+            background-color: #f0f0f0;
+            color: #007acc; 
+        }
+        .logout {
+            background-color: #f0f0f0;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .myinformation{
+            background-color: #f0f0f0;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .logout:hover {
+            background-color: #f0f0f0; 
+            color: #007acc;
+        }
+
+        .myinformation:hover {
+            background-color: #f0f0f0;
+            color: #007acc; 
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <header>
+            <div class="header-left">
+                <div class="title-container">
+                    <button class="header-title">Infostar<span>⭐</span></button>
+                </div>   
+                <div class="search-box">
+                    <input type="text" placeholder="Search" class="search-input">
+                    <button class="cancel-button">Cancel</button>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="logout">LOG OUT</button>
+                <button class="myinformation">내 정보보기</button>
+            </div>
+        </header>
+        
+        <nav>
+            <a href="공모전.html">공모전</a>
+            <a href="대외활동.html">대외활동</a>
+            <a href="팀빌딩.html">팀 빌딩</a>
+        </nav>
+        
+
+        <!-- 배너 -->
+        <section class="banner">
+            <div class="banner-slider">
+                <!-- JavaScript 파일 연결 -->
+                <script src="main.js"></script> 
+                    
+            </div>
+        </section>
+
+        <!-- 콘텐츠 섹션 -->
+        <section id="main-sections" class="sections-container">
+            <div class="row">
+                <div class="section popular-contests">
+                    <h2>인기 공모전</h2>
+                    <div class="cards-container">
+                        <div class="competition-list">
+                            <div class="competition-item">
+                                <img src="우주.jpg" alt="공모전 이미지">
+                                <div class="competition-info">
+                                    <h3>이름</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="competition-list">
+                            <div class="competition-item">
+                                <img src="우주.jpg" alt="공모전 이미지">
+                                <div class="competition-info">
+                                    <h3>이름</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="competition-list">
+                            <div class="competition-item">
+                                <img src="우주.jpg" alt="공모전 이미지">
+                                <div class="competition-info">
+                                    <h3>이름</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section closing-soon">
+                    <h2>마감 임박</h2>
+                    <div class="filters">
+                        <button class="content">공모전</button>
+                        <button class="activity">대외활동</button>
+                    </div>
+                    <div class="cards-container">
+                        <h3><a href="공모전상세페이지.html">[ D- 10 2024년 충청권 공공 데이터 활용·분석 공모전]</a></h3>
+                    </div>
+                    <div class="cards-container">
+                        <h3><a href="공모전상세페이지.html">[ D- 10 2024년 충청권 공공 데이터 활용·분석 공모전]</a></h3>
+                    </div>
+                    <div class="cards-container">
+                        <h3><a href="공모전상세페이지.html">[ D- 10 2024년 충청권 공공 데이터 활용·분석 공모전]</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="section popular-activities">
+                    <h2>인기 대외활동</h2>
+                    <div class="cards-container">
+                        <!-- 인기 대외활동 데이터 -->
+                        <div class="competition-list">
+                            <div class="competition-item">
+                                <img src="우주.jpg" alt="공모전 이미지">
+                                <div class="competition-info">
+                                    <h3>이름</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="competition-list">
+                            <div class="competition-item">
+                                <img src="우주.jpg" alt="공모전 이미지">
+                                <div class="competition-info">
+                                    <h3>이름</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="competition-list">
+                            <div class="competition-item">
+                                <img src="image1.jpg" alt="공모전 이미지">
+                                <div class="competition-info">
+                                    <h3>이름</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section team-building">
+                    <h2>팀 빌딩</h2>
+                    <div class="cards-container">
+                        <h3><a href="공모전상세페이지.html">[ D- 10 2024년 충청권 공공 데이터 활용·분석 공모전]</a></h3>
+                    </div>
+                    <div class="cards-container">
+                        <h3><a href="공모전상세페이지.html">[ D- 10 2024년 충청권 공공 데이터 활용·분석 공모전]</a></h3>
+                    </div>
+                    <div class="cards-container">
+                        <h3><a href="공모전상세페이지.html">[ D- 10 2024년 충청권 공공 데이터 활용·분석 공모전]</a></h3>
+                    </div>
+                        <!-- 팀 빌딩 데이터 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <div class="우주-container">
+            <img src="우주.jpg" class="우주">
+            <div class="우주-text">
+                <p>Infostar</p>
+                <p>공모전과 대외활동을 지금 만나보세요.</p>
+            </div>
+        </div>
+
+        <script src="main.js"></script>
+        <script>
+            const contestData = [
+            {
+                    title: "New Contest 새로운 도전",
+                    buttons: [
+                        { text: "공모전 보기", class: "btn-primary", link: "#" },
+                        { text: "대외활동 보기", class: "btn-secondary", link: "#" }
+                        ],
+                    image: "우주.jpg"
+                        
+                },
+            {
+                title: "환경 보호 포스터 공모전",
+                image: "우주.jpg",
+                link: "#"
+            },
+            {
+                title: "AI 혁신 아이디어 공모전",
+                image: "우주.jpg",
+                link: "#"
+            },
+            {
+                title: "창의적 디자인 공모전",
+                image: "우주.jpg",
+                link: "#"
+            }
+            ];
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const slider = document.querySelector(".banner-slider");
+
+                contestData.forEach(contest => {
+                    const slide = document.createElement("div");
+                    slide.classList.add("slide");
+                    slide.style.backgroundImage = `url('${contest.image}')`;
+
+                    slide.innerHTML = `
+                        <div class="banner-content">
+                            <h1>${contest.title}</h1>
+                        </div>
+                    `;
+
+                    slider.appendChild(slide);
+                });
+
+                startSlider(); // 슬라이드 자동 넘기기 실행
+            });
+
+            function startSlider() {
+                let index = 0;
+                const slides = document.querySelectorAll(".slide");
+
+                function showSlide() {
+                    slides.forEach((slide, i) => {
+                        slide.style.opacity = i === index ? "1" : "0";
+                        slide.style.transition = "opacity 1s ease-in-out";
+                    });
+                    index = (index + 1) % slides.length;
+                }
+
+                showSlide(); // 첫 슬라이드 표시
+                setInterval(showSlide, 3000); // 3초마다 슬라이드 변경
+            }
+        </script>
+        <script>
+            // 로그인 버튼 기능 
+            document.querySelector('.logout').addEventListener('click', function() {
+                window.location.href = '홈화면2.html'; // 홈화면 페이지로 이동
+            });
+        </script>
+    </div>
+</body>
+</html>
+
