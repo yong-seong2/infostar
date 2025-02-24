@@ -206,7 +206,7 @@
             document.addEventListener("click", function (event) {
         // 클릭한 요소가 button이고, data-page 속성이 있을 때만 실행
         if (event.target.tagName === "BUTTON" && event.target.dataset.page) {
-            const pageName = event.target.dataset.page;
+            const pageName = event.target.dataset.page + "1";
             window.location.href = `${pageName}.html`;
     }
 });
