@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀 만들기</title>
+    
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+
+        .filter-box {
+                    display: flex;
+                    justify-content: flex-end;
+                    padding: 5px 10px;
+                
+                }
+        .form-wrapper {
+            display: block;
+            justify-content: center; /* 가로 중앙 정렬 */
+            align-items: center; /* 세로 중앙 정렬 */
+            height: 120vh; /* 화면 전체 높이 */
+            margin-top: 50px; /* 헤더와 폼 사이에 간격 추가 */
+        }
+        /* 폼을 감싸는 박스 */
+     
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 800px;
+            height: auto; /* 높이 자동 조정 */
+            margin: 0 auto; /* 가로 중앙 정렬 */
+            text-align: center;
+        }
+
+        /* 제목 스타일 */
+        .form-container h2 {
+            color: #007acc;
+        } 
+
+        .form-container table td {
+            text-align: left; /* 테이블 내부 글씨 왼쪽 정렬 */
+        }
+
+        .form-container textarea {
+            width: 100%;
+            height: 300px; /* 상세내용 칸 높이 증가 */
+            border: 1px solid #007acc;
+            padding: 10px;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        /* 입력 필드 스타일 */
+        .form-container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #007acc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        /* 입력 필드 포커스 효과 */
+        .form-container input[type="text"]:focus {
+            border-color: #005f99;
+            box-shadow: 0 0 5px rgba(0, 95, 153, 0.5);
+        }
+
+        .save-button {
+        width: 50%; /* 버튼 너비 조절 */
+        max-width: 300px; /* 최대 너비 제한 */
+        margin-top: 20px; /* 버튼과 상세내용 사이 간격 증가 */
+        background-color: #007acc;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        }
+
+        .save-button:hover {
+            background-color: #005f99;
+        }
+
+
+        .우주-container {
+            position: relative;
+            text-align: center;
+            width: 100%; /* 전체 너비 맞춤 */
+            margin-top: 50px; /* 폼과 간격 추가 */
+        }
+
+        .우주 {
+            width: 100%; /* 전체 너비 */
+            height: 180px; /* 원하는 높이로 조절 (가로로 긴 형태) */
+            object-fit: cover; /* 비율 유지하면서 잘라냄 */
+            opacity: 0.9; /* 약간 투명하게 설정 (선택 사항) */
+        }
+
+        .우주-text {
+            position: absolute;
+            top: 50%; /* 사진 위 중앙 정렬 */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white; /* 글자 색상 */
+            font-size: 24px; /* 글자 크기 */
+            font-weight: bold; /* 굵은 글씨 */
+        }
+
+    </style>
+</head>
+<body class="p-6 bg-gray-100">
+        <div class="container">
+            <!-- 헤더 -->
+            <header>
+                <div class="header-left">
+                    <div class="title-container">
+                        <button class="header-title">Infostar<span>⭐</span></button>
+                    
+                    </div>   
+                    <div class="search-box">
+                        <input type="text" placeholder="Search" class="search-input">
+                        <button class="cancel-button">✖</button>
+                        <button class="glasses">🔍</button>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="login">LOG IN</button>
+                    <button class="signup">회원가입</button>
+                </div>
+            </header>
+            
+            <nav>
+                <a href="공모전.html">공모전</a>
+                <a href="대외활동.html">대외활동</a>
+                <a href="팀빌딩.html">팀 빌딩</a>
+            </nav>
+
+            
+
+            <div class="form-wrapper" >
+                <div class="form-container">
+                    <div class="filter-box">
+                <select>
+                    <option>공모전</option>
+                    <option>대외활동</option>
+                </select>
+                    </div>
+                    <h2 class="text-xl font-bold mb-4">팀 만들기</h2>
+                    <table class="w-full border-collapse border border-gray-300 table-fixed">
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="p-2 font-bold bg-gray-100">프로그램명</td>
+                                <td class="p-2"><input type="text" class="w-full border p-2 rounded"></td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-2 font-bold bg-gray-100">주최사</td>
+                                <td class="p-2"><input type="text" class="w-full border p-2 rounded"></td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-2 font-bold bg-gray-100">HASH TAG</td>
+                                <td class="p-2"><input type="text" class="w-full border p-2 rounded"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 font-bold bg-gray-100">남은 기간</td>
+                                <td class="p-2"><input type="text" class="w-full border p-2 rounded"></td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-2 font-bold bg-gray-100">모집인원</td>
+                                <td class="p-2"><input type="number" class="w-full border p-2 rounded"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 font-bold bg-gray-100 text-left">상세내용</td>
+                                <td class="p-2">
+                                    <textarea class="w-full border p-2 rounded resize-none"></textarea>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    <button class="save-button">저장하기</button>
+                </div>
+               
+                
+            </div>
+            
+        </div>
+    <div class="우주-container">
+        <img src="우주.jpg" class="우주">
+        <div class="우주-text">
+            <p>Infostar</p>
+            <p>공모전과 대외활동을 지금 만나보세요.</p>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <script>
+        // 저장하기 버튼 기능 
+            document.querySelector('.save-button').addEventListener('click', function() {
+                window.location.href = '팀빌딩.html'; // 팀만들기 페이지로 이동
+            });
+    </script>
+</body>
+</html>

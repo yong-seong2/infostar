@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공모전 상세</title>
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+       main {
+           display: flex;
+           padding: 20px;
+       }
+       .sidebar {
+           width: 200px ;
+           padding: 20px ;
+           background: #f1f1f1 ; 
+       }
+       .sidebar ul {
+           list-style: none ;
+           padding: 0 ;
+       }
+
+       .info {
+            width: 100%;
+            padding: 20px;
+        }
+
+        /* 공모전 헤더 스타일 */
+        .info-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .mt-6 {
+            display: flex;
+            justify-content: flex-end; /* 오른쪽 정렬 */
+            align-items: center; /* 수직 정렬 */
+            gap: 10px; /* 버튼 간격 */
+        }
+
+        .team-building {
+            padding: 6px 14px; /* 크기 조절 */
+            font-size: 14px; 
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .team-building:hover {
+            background-color: #0056b3;
+        }
+
+        .scrap-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 6px 12px; /* 크기 조절 */
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .scrap-button:hover {
+            background-color: #0056b3;
+        }
+
+        .scrap-button svg {
+            width: 16px;
+            height: 16px;
+            fill: white;
+        }
+
+
+
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <header>
+            <div class="header-left">
+                <div class="title-container">
+                    <button class="header-title">Infostar<span>⭐</span></button>
+                </div>   
+                <div class="search-box">
+                    <input type="text" placeholder="Search" class="search-input">
+                    <button class="cancel-button">✖</button>
+                    <button class="glasses">🔍</button>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="login">LOG IN</button>
+                <button class="signup">회원가입</button>
+            </div>
+        </header>
+        
+        <nav>
+            <a href="공모전.html">공모전</a>
+            <a href="대외활동.html">대외활동</a>
+            <a href="팀빌딩.html">팀 빌딩</a>
+        </nav>
+
+        <main class="flex gap-6">
+            <aside class="sidebar">
+                <h3>분야</h3>
+                <ul>
+                    <li><button data-page="all">전체</button></li>
+                    <li><button data-page="planning_idea">기획/아이디어</button></li>
+                    <li><button data-page="marketing">광고/마케팅</button></li>
+                    <li><button data-page="literature">문학/수기/시나리오</button></li>
+                    <li><button data-page="it_game">IT/소프트웨어/게임</button></li>
+                    <li><button data-page="etc">기타</button></li>
+                </ul>
+                <h3>응시대상자</h3>
+                <ul>
+                    <li><button data-page="all_applicants">전체</button></li>
+                    <li><button data-page="no_restrictions">제한없음</button></li>
+                    <li><button data-page="university_students">대학생</button></li>
+                    <li><button data-page="youth">청소년</button></li>
+                    <li><button data-page="etc_target">기타</button></li>
+                </ul>
+                <h3>시상내역</h3>
+                <ul>
+                    <li><button data-page="prize_50mil">5천만원 이상</button></li>
+                    <li><button data-page="prize_30_50mil">3천만~5천만</button></li>
+                    <li><button data-page="prize_10_30mil">1천만~3천만</button></li>
+                    <li><button data-page="prize_under_10mil">1천만원 이하</button></li>
+                    <li><button data-page="employment_benefit">취업 특전</button></li>
+                    <li><button data-page="extra_points">입사시 가산점</button></li>
+                </ul>
+            </aside>
+
+            <section class="info">
+                <div class="info-header">
+                    <h1><div class="text-2xl font-bold mb-4">제2회 세대공감 영상자서전 콘테스트 (삶이 역사다)</div></h1>
+                </div>
+                <!-- 이미지 및 공모전 정보 -->
+                <div class="flex flex-col md:flex-row gap-6">
+                    <!-- 공모전 이미지 -->
+                    <div class="flex-shrink-0 w-full md:w-1/3">
+                        <img src="https://via.placeholder.com/300" alt="공모전 포스터" class="rounded-lg w-full">
+                    </div>
+
+                    <!-- 공모전 정보 -->
+                    <div class="flex-1">
+                        <p><strong>분야:</strong> 광고/마케팅, 영상/UCC, 사진, 웹/모바일, IT, 예체능 등</p>
+                        <p><strong>응모대상:</strong> 제한 없음, 기타</p>
+                        <p><strong>주최/기관:</strong> 충청북도 / 충청북도노인종합복지관</p>
+                        <p><strong>접수기간:</strong> 2024-10-14 ~ 2024-12-05 <span class="text-red-500">D-35</span></p>
+                        <p><strong>총 상금:</strong> 3천만 원 + 1천만 원</p>
+                        <p><strong>1등 상금:</strong> 200만 원</p>
+                        <p><strong>홈페이지:</strong> <a href="http://www.cbsilver.or.kr/" class="text-blue-500 underline">http://www.cbsilver.or.kr/</a></p>
+                        <p><strong>첨부파일:</strong> <a href="#" class="text-blue-500 underline">[첨부파일 다운로드]</a></p>
+                    </div>
+                </div>
+
+                <!-- 상세 내용 -->
+                <div class="infoinfo">
+                    <h3 class="text-lg font-bold mb-2">상세 내용</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        - 세대공감을 주제로 영상 제작 <br>
+                        - 가족, 친구, 이웃의 삶을 조명하는 이야기 <br>
+                        - 제출 형식: MP4, MPEG, MOV <br>
+                        - 영상 길이: 3~5분 이내 <br>
+                        - 접수 방법: 온라인 제출 <br>
+                    </p>
+                </div>
+
+                <div class="mt-6 flex justify-end items-center gap-3">
+                    <button class="team-building">팀 만들기</button>
+                    <button class="scrap-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="white">
+                            <path d="M6 2C4.89 2 4 2.89 4 4V22L12 18L20 22V4C20 2.89 19.11 2 18 2H6Z"/>
+                        </svg>
+                        스크랩
+                    </button>
+                </div>
+                
+                
+            </section>
+        </main>
+    </div>
+    <script src="main.js"></script>
+    <script>
+        // 팀만들기 버튼 기능 
+            document.querySelector('.team-building').addEventListener('click', function() {
+                window.location.href = '팀만들기.html'; // 팀만들기 페이지로 이동
+            });
+    </script>
+    <script>
+        document.addEventListener("click", function (event) {
+    // 클릭한 요소가 button이고, data-page 속성이 있을 때만 실행
+    if (event.target.tagName === "BUTTON" && event.target.dataset.page) {
+        const pageName = event.target.dataset.page;
+        window.location.href = `${pageName}.html`;
+}
+});
+    </script>   
+</body>
+</html>
+s

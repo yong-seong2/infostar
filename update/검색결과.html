@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infostar 검색결과</title>
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+       
+       main {
+            display: flex;
+            padding: 20px;
+        }
+        .sidebar {
+            width: 200px;
+            padding: 20px;
+            background: #f1f1f1;
+            
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+         .search {
+            width: 100%;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <div class="title-container">
+                    <button class="header-title">Infostar<span>⭐</span></button>
+                </div>   
+                <div class="search-box">
+                    <input type="text" placeholder="Search" class="search-input">
+                    <button class="cancel-button">✖</button>
+                    <button class="glasses">🔍</button>
+                </div>
+            </div>
+                <div class="header-right">
+                    <button class="login">LOG IN</button>
+                    <button class="signup">회원가입</button>
+                </div>
+        </header>
+    
+        <nav>
+            <a href="공모전.html">공모전</a>
+            <a href="대외활동.html">대외활동</a>
+            <a href="팀빌딩.html">팀 빌딩</a>
+        </nav>
+
+
+        <main class="flex gap-6">
+            <aside class="sidebar">
+                <h3>분야</h3>
+                <ul>
+                    <li><button data-page="all1">전체</button></li>
+                    <li><button data-page="planning_idea1">기획/아이디어</button></li>
+                    <li><button data-page="marketing1">광고/마케팅</button></li>
+                    <li><button data-page="literature1">문학/수기/시나리오</button></li>
+                    <li><button data-page="it_game1">IT/소프트웨어/게임</button></li>
+                    <li><button data-page="etc1">기타</button></li>
+                </ul>
+                <h3>응시대상자</h3>
+                <ul>
+                    <li><button data-page="all_applicants1">전체</button></li>
+                    <li><button data-page="no_restrictions1">제한없음</button></li>
+                    <li><button data-page="university_students1">대학생</button></li>
+                    <li><button data-page="youth1">청소년</button></li>
+                    <li><button data-page="etc_target1">기타</button></li>
+                </ul>
+                <h3>시상내역</h3>
+                <ul>
+                    <li><button data-page="prize_50mil1">5천만원 이상</button></li>
+                    <li><button data-page="prize_30_50mil1">3천만~5천만</button></li>
+                    <li><button data-page="prize_10_30mil1">1천만~3천만</button></li>
+                    <li><button data-page="prize_under_10mil1">1천만원 이하</button></li>
+                    <li><button data-page="employment_benefit1">취업 특전</button></li>
+                    <li><button data-page="extra_points1">입사시 가산점</button></li>
+                </ul>
+            </aside>
+            
+            <section class="search">
+                <!-- 검색 결과를 표시할 영역 -->
+                <div id="search-results">
+                    <h2>검색 결과</h2>
+                    <div id="contest-results">
+                        <h3>공모전</h3>
+                        <div class="result-list" id="contest-list"></div>
+                    </div>
+
+                    <div id="activity-results">
+                        <h3>대외활동</h3>
+                        <div class="result-list" id="activity-list"></div>
+                    </div>
+
+                    <div id="team-results">
+                        <h3>팀 빌딩</h3>
+                        <div class="result-list" id="team-list"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="main.js"></script>
+    <script>
+            // 데이터베이스 (샘플 데이터)
+        const activities = [
+            { name: "AI 해커톤", type: "공모전", description: "AI 모델 개발 대회" },
+            { name: "스타트업 아이디어톤", type: "공모전", description: "혁신적인 비즈니스 아이디어" },
+            { name: "글로벌 인턴십 프로그램", type: "대외활동", description: "해외 인턴십 기회" },
+            { name: "IT 창업 캠프", type: "대외활동", description: "IT 기반 창업 교육" },
+            { name: "AI 프로젝트 팀 모집", type: "팀 빌딩", description: "AI 프로젝트 진행할 팀원 모집" },
+            { name: "UX/UI 디자인 팀원 구함", type: "팀 빌딩", description: "UX/UI 디자인 프로젝트 협업할 팀원 모집" }
+        ];
+
+        // URL에서 검색어 가져오기
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get("query").toLowerCase();
+
+        let contestList = document.getElementById("contest-list");
+        let activityList = document.getElementById("activity-list");
+        let teamList = document.getElementById("team-list");
+
+        // 검색 결과 초기화
+        contestList.innerHTML = "";
+        activityList.innerHTML = "";
+        teamList.innerHTML = "";
+
+        // 검색어와 관련된 데이터 필터링
+        let filteredActivities = activities.filter(activity =>
+            activity.name.toLowerCase().includes(query) ||
+            activity.description.toLowerCase().includes(query)
+        );
+
+        // 검색 결과가 없을 때
+        if (filteredActivities.length === 0) {
+            contestList.innerHTML = "<p>검색 결과가 없습니다.</p>";
+            activityList.innerHTML = "<p>검색 결과가 없습니다.</p>";
+            teamList.innerHTML = "<p>검색 결과가 없습니다.</p>";
+        } else {
+            // 검색 결과 추가
+            filteredActivities.forEach(activity => {
+                let div = document.createElement("div");
+                div.classList.add("search-result");
+                div.innerHTML = `<strong>${activity.name}</strong><br>${activity.description}`;
+
+                if (activity.type === "공모전") {
+                    contestList.appendChild(div);
+                } else if (activity.type === "대외활동") {
+                    activityList.appendChild(div);
+                } else if (activity.type === "팀 빌딩") {
+                    teamList.appendChild(div);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
