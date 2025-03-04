@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infostar 대외활동</title>
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+       
+       main {
+            display: flex;
+            padding: 20px;
+        }
+        .sidebar {
+            width: 200px;
+            padding: 20px;
+            background: #f1f1f1;
+            
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .competitions {
+            width: 100%;
+            padding: 20px;
+        }
+
+        /* 공모전 헤더 스타일 */
+        .competitions-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        /* 공모전 리스트를 2개씩 정렬 */
+        .competition-container {
+            display: flex;
+            flex-wrap: wrap; /* 자동 줄바꿈 */
+            gap: 20px; /* 간격 조정 */
+            width: 100%;
+        }
+
+        /* 한 줄에 두 개씩 배치 */
+        .competition-list {
+            width: calc(50% - 10px); /* 부모 너비에서 반 나눔 */
+            box-sizing: border-box; /* 패딩/마진 포함 */
+        }
+
+        .filter-box select {
+            padding: 5px 10px;
+            font-weight: bold;
+        }
+       
+        /* 공모전 개별 항목 카드 스타일 */
+        .competition-item {
+            border: 1px solid #ccc;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .competition-item img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <header>
+            <div class="header-left">
+                <div class="title-container">
+                    <button class="header-title">Infostar<span>⭐</span></button>
+                </div>   
+                <div class="search-box">
+                    <input type="text" placeholder="Search" class="search-input">
+                    <button class="cancel-button">✖</button>
+                    <button id="search-button" class="glasses">🔍</button>
+
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="login">LOG IN</button>
+                <button class="signup">회원가입</button>
+            </div>
+        </header>
+        
+        <nav>
+            <a href="공모전.html">공모전</a>
+            <a href="대외활동.html">대외활동</a>
+            <a href="팀빌딩.html">팀 빌딩</a>
+        </nav>
+        
+        
+        <main class="flex gap-6">
+            <aside class="sidebar">
+                <h3>분야</h3>
+                <ul>
+                    <li><button data-page="all">전체</button></li>
+                    <li><button data-page="planning_idea">기획/아이디어</button></li>
+                    <li><button data-page="marketing">광고/마케팅</button></li>
+                    <li><button data-page="literature">문학/수기/시나리오</button></li>
+                    <li><button data-page="it_game">IT/소프트웨어/게임</button></li>
+                    <li><button data-page="etc">기타</button></li>
+                </ul>
+                <h3>응시대상자</h3>
+                <ul>
+                    <li><button data-page="all_applicants">전체</button></li>
+                    <li><button data-page="no_restrictions">제한없음</button></li>
+                    <li><button data-page="university_students">대학생</button></li>
+                    <li><button data-page="youth">청소년</button></li>
+                    <li><button data-page="etc_target">기타</button></li>
+                </ul>
+                <h3>시상내역</h3>
+                <ul>
+                    <li><button data-page="prize_50mil">5천만원 이상</button></li>
+                    <li><button data-page="prize_30_50mil">3천만~5천만</button></li>
+                    <li><button data-page="prize_10_30mil">1천만~3천만</button></li>
+                    <li><button data-page="prize_under_10mil">1천만원 이하</button></li>
+                    <li><button data-page="employment_benefit">취업 특전</button></li>
+                    <li><button data-page="extra_points">입사시 가산점</button></li>
+                </ul>
+            </aside>
+            
+            
+            <section class="competitions">
+                <div class="competitions-header">
+                    <h2><span>대외활동</span> <span style="font-size: 1rem;">| 청소년대상</span></h2>
+                    <div class="filter-box">
+                      <select>
+                        <option>추천순</option>
+                        <option>인기순</option>
+                        <option>최신순</option>
+                        <option>마감순</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="competition-container">
+                    <div class="competition-list">
+                        <div class="competition-item">
+                            <img src="image1.jpg" alt="공모전 이미지">
+                            <div class="competition-info">
+                                <h3><a href="공모전상세페이지.html">[2024년 충청권 공공 데이터 활용·분석 공모전]</a></h3>
+                                <p>주최/주관: 행정안전부</p>
+                                <p>접수기간: 2024-09-02 ~ 2024-09-27</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="competition-list">
+                        <div class="competition-item">
+                            <img src="image1.jpg" alt="공모전 이미지">
+                            <div class="competition-info">
+                                <h3><a href="공모전상세페이지.html">[2024년 충청권 공공 데이터 활용·분석 공모전]</a></h3>
+                                <p>주최/주관: 행정안전부</p>
+                                <p>접수기간: 2024-09-02 ~ 2024-09-27</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="competition-list">
+                        <div class="competition-item">
+                            <img src="image1.jpg" alt="공모전 이미지">
+                            <div class="competition-info">
+                                <h3><a href="공모전상세페이지.html">[2024년 충청권 공공 데이터 활용·분석 공모전]</a></h3>
+                                <p>주최/주관: 행정안전부</p>
+                                <p>접수기간: 2024-09-02 ~ 2024-09-27</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="competition-list">
+                        <div class="competition-item">
+                            <img src="image1.jpg" alt="공모전 이미지">
+                            <div class="competition-info">
+                                <h3>이름</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="competition-list">
+                        <div class="competition-item">
+                            <img src="image1.jpg" alt="공모전 이미지">
+                            <div class="competition-info">
+                                <h3>이름</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="competition-list">
+                        <div class="competition-item">
+                            <img src="image1.jpg" alt="공모전 이미지">
+                            <div class="competition-info">
+                                <h3>이름</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+         
+    </div> 
+    <script src="main.js" defer></script>  
+    <script>
+            document.addEventListener("click", function (event) {
+        // 클릭한 요소가 button이고, data-page 속성이 있을 때만 실행
+        if (event.target.tagName === "BUTTON" && event.target.dataset.page) {
+            const pageName = event.target.dataset.page+ "1"; // "1" 추가;
+            window.location.href = `${pageName}.html`;
+    }
+});
+    </script>
+</body>
+</html>
