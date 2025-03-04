@@ -90,7 +90,7 @@ header {
 
 .glasses {
     padding: 7px 7px;
-    background-color: white;
+    background: none;
     color: white;
     border: none;
     cursor: pointer;
